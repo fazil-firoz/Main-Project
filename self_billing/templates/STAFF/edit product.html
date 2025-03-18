@@ -1,0 +1,84 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+{% extends 'ADMIN/index.html' %}
+{% block body %}
+
+<body>
+<form action="/editproductcode" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table table-bordered table-hover table-white" style="width:500px;">
+       <tr>
+           <td class="bg-dark text-white" colspan="12" style="font-size: 20px" align="center"><b>EDIT PRODUCT</b></td>
+  </tr>
+    <tr>
+      <td>Product Name </td>
+      <td><label>
+        <input type="text" name="textfield" value="{{ val.productname }}"  class="form-control"/>
+      </label></td>
+    </tr>
+       <tr>
+      <td>Description</td>
+      <td><label>
+        <input type="text" name="textfield8"value="{{ val.Description }}"  class="form-control"/>
+      </label></td>
+    </tr>
+      <tr>
+       <td>Company</td>
+      <td><label>
+        <input type="text" name="textfield7"value="{{ val.Company }}"  class="form-control"/>
+      </label></td>
+    </tr>
+      <tr>
+       <td>Category</td>
+      <td><label>
+        <input type="text" name="textfield6" value="{{ val.Category }}"  class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Image</td>
+      <td><label>
+          <input type="file" name="file"/>
+          <img src="{{ val.image.url }}" height="100" width="100">
+      </label></td>
+    </tr>
+    <tr>
+      <td>Quantity</td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{ val.stock }}"  class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><label>
+        <input type="text" name="textfield3"value="{{ val.price }}"   class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Manufacturingdate</td>
+      <td><label>
+        <input type="date" name="textfield4" value="{{ mdate}}" />
+      </label></td>
+    </tr>
+       <tr>
+      <td>Expirydate</td>
+      <td><label>
+        <input type="date" name="textfield5"value="{{ exdate }}" />
+      </label></td>
+    </tr>
+
+    <tr>
+      <td colspan="2" align="center"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="SAVE" class="btn btn-secondary"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
+{#</body>#}
+{#</html>#}

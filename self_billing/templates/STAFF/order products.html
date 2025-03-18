@@ -1,0 +1,87 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'STAFF/staffindex1.html' %}
+{% block body %}
+
+
+<form id="form1" name="form1" method="post" action="/srchordr_products#about">
+  <table  border="1" class="table table-bordered table-hover table-white" >
+  <tr>
+      <td class="bg-dark text-white" colspan="13" style="font-size: 20px" align="center"><b>ORDER BY SHOP</b></td>
+  </tr>
+    <tr>
+        <td colspan="11"><b>Name</b>
+        <label>
+            <input type="text" name="textfield" />
+            <input type="submit" name="Submit" value="search" class="btn btn-primary" />
+
+        </label>
+        </td>
+    </tr>
+    <tr>
+        <td><b>Slno</b>/td>
+      <td><b>Slno</b></td>
+      <td><b>Description</b> </td>
+      <td><b>Company</b></td>
+      <td><b>Category</b></td>
+      <td><b>Image</b></td>
+      <td><b>Stock</b></td>
+      <td><b>Price</b></td>
+      <td><b>Manufacturingdate</b></td>
+      <td><b>Expirydate</b></td>
+
+    </tr>
+        {% for i in my_objects %}
+
+    <tr>
+{#      <td>{{ forloop.counter }}</td>#}
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.productname }} </td>
+        <td>&nbsp;{{ i.Description }} </td>
+        <td>&nbsp;{{ i.Company }} </td>
+        <td>&nbsp;{{ i.Category }} </td>
+      <td> <img src="media/{{ i.image }}" width="100%"></td>
+      <td>{{ i.stock}}</td>
+      <td>&nbsp;{{ i.price}}</td>
+      <td>&nbsp;{{ i.Manufacturingdate}}</td>
+      <td>&nbsp;{{ i.Expirydate}}</td>
+      <td><a href="ordrdtls/{{i.id}}#about" class="btn btn-danger">order</a></td>
+{#      <td><a href="/viewmycart#about" class="btn btn-outline-danger"> view cart</a></td>#}
+    </tr>
+       {% endfor %}
+{#  <tr>#}
+{#      <td colspan="11">#}
+{##}
+{#          <div class="pagination">#}
+{#    <span class="step-links">#}
+{#        {% if my_objects.has_previous %}#}
+{#            <a href="?page=1">&laquo; first</a>#}
+{#            <a href="?page={{ my_objects.previous_page_number }}">previous</a>#}
+{#        {% endif %}#}
+{##}
+{#        <span class="current">#}
+{#            Page {{ my_objects.number }} of {{ my_objects.paginator.num_pages }}.#}
+{#        </span>#}
+{##}
+{#        {% if my_objects.has_next %}#}
+{#            <a href="?page={{ my_objects.next_page_number }}">next</a>#}
+{#            <a href="?page={{ my_objects.paginator.num_pages }}">last &raquo;</a>#}
+{#        {% endif %}#}
+{#    </span>#}
+{#</div>#}
+{##}
+{##}
+{#      </td>#}
+{#  </tr>#}
+  </table>
+</form>
+
+{% endblock %}
+{#</body>#}
+{#</html>#}

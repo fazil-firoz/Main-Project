@@ -1,0 +1,46 @@
+{% extends 'STAFF/staffindex1.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/searchproducts">
+  <table  border="1" class="table table-bordered table-hover table-white">
+  <tr>
+      <td class="bg-dark text-white" colspan="7" style="font-size: 20px" align="center"><b>ADD & MANAGE STOCK</b></td>
+  </tr>
+    <tr  class="bg-secondary">
+      <td><b>Product</b></td>
+      <td colspan="5"><label>
+        <input type="text" name="textfield" />
+
+
+        <input type="submit" name="Submit"   class="btn btn-primary" value="Search" />
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Slno</b></td>
+      <td><b>Product Name</b></td>
+
+      <td><b>Category</b></td>
+      <td><b>Image</b></td>
+      <td><b>Stock</b></td>
+      <td><b>Price</b></td>
+
+      <td><b>Edit</b></td>
+    </tr>
+      {% for i in val %}
+
+    <tr>
+       <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.productname }} </td>
+        <td>&nbsp;{{ i.Category }} </td>
+      <td> <img src="media/{{ i.image }}" width="30%"></td>
+      <td>{{ i.stock}}</td>
+      <td>&nbsp;{{ i.price}}</td>
+       <td><p><a href="/editstock/{{ i.id }}" class="btn btn-primary">Edit</a></p></td>
+    </tr>
+      {% endfor %}
+
+  </table>
+</form>
+{% endblock %}
+{#</body>#}
+{#</html>#}

@@ -1,0 +1,87 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+{% extends 'ADMIN/index.html' %}
+{% block body %}
+
+<body>
+<form action="/edit_stafff" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1"  class="table table-bordered table-hover table-white" style="width:500px;">
+   <tr>
+      <td class="bg-dark text-white" colspan="9" style="font-size: 20px" align="center"><b>EDIT STOCK MANAGER</b></td>
+  </tr>
+    <tr>
+      <td>First Name </td>
+      <td><label>
+        <input type="text" name="textfield" value="{{ val.fname }}"required pattern="[A-Z a-z.]{3,25}" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Last Name </td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{ val.lname }}"required pattern="[A-Z a-z.]{0,25}" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><label>
+        <input name="radiobutton" type="radio" value="Male" {% if val.gender == 'Male' %}checked{% endif %}/>
+        M
+        <input name="radiobutton" type="radio" value="Female" {% if val.gender == 'Female' %}checked{% endif %}/>
+        F
+      </label></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label>
+        <input type="text" name="textfield3" value="{{ val.place }}" pattern="[A-Z a-z.]{3,25}" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label>
+        <input type="text" name="textfield4" value="{{ val.post }}" pattern="[A-Z a-z.]{3,25}" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><label>
+        <input type="text" name="textfield5" value="{{ val.pin }}" required pattern="[0-9]{6}" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Phone_no</td>
+      <td><label>
+        <input type="text" name="textfield6" value="{{ val.phone }}" required pattern="[6789][0-9]{9}" class="form-control" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label>
+        <input type="text" name="textfield7" value="{{ val.email }}" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><label>
+        <input type="file" name="file" value="{{ val.photo }}"  accept="image/jpeg,image/png"/>
+          <img src="{{ val.photo.url }}" height="100" width="100">
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="SAVE" class="btn btn-secondary"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
+
+{#</body>#}
+{#</html>#}

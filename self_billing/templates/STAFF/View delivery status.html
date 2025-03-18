@@ -1,0 +1,38 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'STAFF/staffindex1.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-bordered table-hover table-white">
+   <tr>
+       <td class="bg-dark text-white" colspan="9" style="font-size: 20px" align="center"><b>VIEW DELIVERY STATUS</b></td>  </tr>
+    <tr>
+    <tr>
+      <td><b>Slno</b></td>
+      <td><b>User</b></td>
+      <td><b>Amount</b></td>
+      <td><b>Status</b></td>
+      <td><b>Delivery status</b></td>
+
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.order.USER.name }}</td>
+      <td>&nbsp;{{ i.order.amount }}</td>
+      <td>&nbsp;{{ i.status }}</td>
+      <td>&nbsp;{{ i.order.ordertype }}</td>
+      <td><a  class="btn btn-primary" href="/viewdproducts/{{ i.order.id }}">View Product</a></td>
+    </tr>
+        {% endfor %}
+  </table>
+</form>
+{% endblock %}
+{#</body>#}
+{#</html>#}

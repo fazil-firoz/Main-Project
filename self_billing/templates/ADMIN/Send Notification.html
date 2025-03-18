@@ -1,0 +1,40 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'ADMIN/index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="adddnotification">
+  <table width="200" border="1" class="table table-bordered table-hover table-white">
+   <tr>
+       <td class="bg-dark text-white" colspan="9" style="font-size: 20px" align="center"><b>SEND NOTIFICATION</b></td>
+  </tr>
+    <tr>
+      <td><b>Slno</b></td>
+      <td><b>Notification</b></td>
+      <td><b>Date</b></td>
+      <td><b>Delete</b></td>
+
+    </tr>
+        {% for i in val %}
+
+    <tr>
+      <td>    {{ forloop.counter }}</td>
+      <td>{{ i.notification }}</td>
+      <td>{{ i.date }}</td>
+      <td><a href="delete_noti/{{ i.id }}" class="btn btn-danger"  onclick="return confirm('are you sure ?')">Delete</a></td>
+    </tr>
+      {% endfor  %}
+    <tr>
+      <td colspan="9" align="center">
+        <a class="btn btn-primary w-100" href="adddnotification#about">Add </a></td>
+    </tr>
+
+  </table>
+</form>
+{% endblock %}
+{#</body>#}
+{#</html>#}

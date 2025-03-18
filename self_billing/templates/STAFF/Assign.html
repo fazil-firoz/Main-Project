@@ -1,0 +1,29 @@
+{% extends 'STAFF/staffindex1.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'assignorder' %}">
+ <table width="200" border="1" class="table table-bordered table-hover table-white">
+    <tr>
+      <td class="bg-dark text-white"  colspan="10" style="font-size: 20px" align="center"><b>ASSIGN</b></td>
+  </tr>    <tr>
+     <td><b>Delivery Boy</b></td>
+      <td><label>
+        <select name="select">
+            {% for i in val %}
+                <option value="{{ i.id }}">{{ i.name }}</option>
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><label>
+        <div >
+          <input type="submit" name="Submit" value="Assign"   class="btn btn-primary w-100"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

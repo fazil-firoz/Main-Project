@@ -1,0 +1,70 @@
+
+
+{% extends 'ADMIN/index.html' %}
+{% block body %}
+<body>
+<form action="/edit_deliveryboycode" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table table-bordered table-hover table-white" style="width:500px;">
+  <tr>
+      <td class="bg-dark text-white" colspan="9" style="font-size: 20px" align="center"><b>EDIT DELIVERYBOY</b></td>
+  </tr>
+    <tr>
+      <td> Name </td>
+      <td><label>
+        <input type="text" name="textfield"  value="{{ val.name}}"required   class="form-control"/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td>Gender</td>
+      <td><label>
+        <input name="radiobutton" type="radio" value="Male" {% if val.Gender == 'Male' %} checked {% endif %}/>
+      M
+      <input name="radiobutton" type="radio"  value="Female" {% if val.Gender == 'Female' %} checked {% endif %}/>
+      F
+      </label></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label>
+        <input type="text" name="textfield3"value="{{ val.place }}" required class="form-control" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label>
+        <input type="text" name="textfield4" value="{{ val.post }}" required  class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><label>
+        <input type="text" name="textfield5" value="{{ val.pin }}" required pattern="[0-9]{6}"  class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Phone_no</td>
+      <td><label>
+        <input type="text" name="textfield6" value="{{ val.phone }}" required pattern="[6789][0-9]{9}" class="form-control" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label>
+        <input type="text" name="textfield7" value="{{ val.email }}" equired pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"  class="form-control"/>
+      </label></td>
+    </tr>
+
+
+    <tr>
+      <td colspan="2"><div align="center">
+        <label>
+        <input type="submit" name="Submit" value="SAVE"  class="btn btn-secondary" />
+        </label>
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
+{#</body>#}
+{#</html>#}

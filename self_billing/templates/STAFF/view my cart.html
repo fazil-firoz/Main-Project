@@ -1,0 +1,47 @@
+
+{% extends 'STAFF/staffindex1.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1"  class="table table-bordered table-hover table-white">
+    <tr>
+        <td class="bg-dark text-white"  colspan="10" style="font-size: 20px" align="center"><b> VIEW MYCART</b></td>
+  </tr>
+    <tr>
+      <td><b>product</b></td>
+      <td><b>image</b></td>
+      <td><b>quantity</b></td>
+        <td></td>
+
+    </tr>
+       {% for i in val %}
+    <tr>
+       <td>{{ i.PRODUCT.productname}}</td>
+{#       <td>{{ i.PRODUCT.image }}</td>#}
+        <td><img src="{{ i.PRODUCT.image.url }}" width="100" height="100"></td>
+
+      <td>{{ i.quantity }}</td>
+    <td><a href="delete/{{ i.id }}" class="btn btn-danger">Delete</a> </td>
+    </tr>
+       {% endfor %}
+
+  <tr>
+       <td colspan="2">TOTAL</td>
+      <td colspan="2">
+      <input type="text" name="name" value="{{total.price}}" required disabled/>
+      </td>
+    </tr>
+  <tr>
+      <td colspan="4" align="center"><label>
+          <a href="orderfromcart/{{total.id}}" CLASS="BTN btn-primary">ORDER</a>
+      </label>
+      </td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,45 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'STAFF/staffindex1.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1"class="table table-bordered table-hover table-white">
+   <tr>
+        <td class="bg-dark text-white"  colspan="10" style="font-size: 20px" align="center"><b> ORDER HISTORY</b></td>
+  </tr>
+    <tr>
+      <td><b>S/no</b> </td>
+      <td><b>Date</b></td>
+      <td><b>Total Amount</b></td>
+      <td><b>Status</b></td>
+    <td></td>
+    </tr>
+  <tr>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.date }}</td>
+{#      <td><img src="{{ i.image.url }}" width="100" height="100"></td>#}
+      <td>&nbsp;{{ i.price }}</td>
+        {% if i.status == 'Accepted' %}
+   <td> <a href="user_pay_proceed/{{ i.id }}/{{ i.price }}" class="btn btn-primary">pay now</a> </td>
+        {% else %}
+        <td>{{ i.status }}</td>
+        {% endif %}
+          <td ><a href="view_item_ordr_status/{{ i.id }}#main" class="btn btn-primary">view items</a></td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}
+{#</body>#}
+{#</html>#}

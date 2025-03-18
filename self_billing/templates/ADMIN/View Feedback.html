@@ -1,0 +1,38 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'ADMIN/index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-bordered table-hover table-white">
+
+       <tr>
+           <td class="bg-dark text-white"  colspan="10" style="font-size: 20px" align="center"><b>VIEW FEEDBACK</b></td>
+  </tr>
+    <tr>
+      <td><b>Slno</b></td>
+      <td><b>User</b></td>
+      <td><b>Feedback</b></td>
+      <td><b>Date</b></td>
+      <td><b>Rating</b></td>
+    </tr>
+           {% for i in val %}
+
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.USER.name }}</td>
+      <td>&nbsp;{{ i.feedback }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.rating }}</td>
+    </tr>
+            {% endfor  %}
+
+  </table>
+</form>
+{% endblock %}
+{#</body>#}
+{#</html>#}

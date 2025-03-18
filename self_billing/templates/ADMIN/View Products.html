@@ -1,0 +1,72 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+{% extends 'ADMIN/index.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="search_product">
+  <table width="200" border="1"  class="table table-bordered table-hover table-white">
+
+   <tr>
+       <td class="bg-dark text-white"  colspan="10" style="font-size: 20px" align="center"><b>VIEW PRODUCT</b></td>
+  </tr>
+    <tr>
+      <td colspan="10"><b>Product</b>
+
+        <input type="text" name="textfield" />
+
+     <b>Category</b>
+
+        <input type="text" name="textfield2" />
+
+ <button type="submit" class="btn btn-primary">
+  <span class="glyphicon glyphicon-search"></span> Search
+</button>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Slno</b></td>
+      <td><b>Name</b></td>
+      <td><b>Description</b></td>
+      <td><b>Company</b></td>
+      <td><b>Catogory</b></td>
+        <td><b>Image</b></td>
+        <td><b>Stock</b></td>
+        <td><b>Price</b></td>
+        <td><b>Manufacturingdate</b> </td>
+        <td><b>Expirydate</b></td>
+
+
+
+
+
+    </tr>
+
+     {% for i in val %}
+
+    <tr>
+      <td>{{ forloop.counter }} </td>
+      <td> {{ i.productname }}  </td>
+      <td>&nbsp;{{ i.Description }} </td>
+      <td>&nbsp;{{ i.Company }}</td>
+      <td>&nbsp;&nbsp;{{ i.Category }}</td>
+        <td>&nbsp;&nbsp;<img src="media/{{ i.image }}" width="100dp" height="100dp" /></td>
+        <td>&nbsp;&nbsp;{{ i.stock }}</td>
+        <td>&nbsp;&nbsp;{{ i.price|floatformat:2 }}</td>
+         <td>&nbsp;&nbsp;{{ i.Manufacturingdate }}</td>
+        <td>&nbsp;&nbsp;{{ i.Expirydate }}</td>
+    </tr>
+      {% endfor  %}
+  </table>
+</form>
+
+{% endblock %}
+
+{#</body>#}
+{#</html>#}

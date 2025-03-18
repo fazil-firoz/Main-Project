@@ -1,0 +1,69 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+
+{% extends 'ADMIN/index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="search_staff">
+  <table  border="1" class="table table-bordered table-hover table-white" >
+  <tr>
+      <td class="bg-dark text-white" colspan="9" style="font-size: 20px" align="center"><b>ADD & MANAGE STOCK MANAGER</b></td>
+  </tr>
+    <tr class="bg-secondary">
+      <td colspan="9"><b>Staff</b>
+
+        <input type="text" name="textfield"  />
+
+      <button type="submit" class="btn btn-primary">
+  <span class="glyphicon glyphicon-search"></span> Search
+      </button></tr>
+    </tr>
+
+
+
+    <tr>
+      <td><b>Slno</b></td>
+      <td><b>Name</b></td>
+      <td><b>Gender</b></td>
+      <td><b>Address</b></td>
+      <td><b>Email</b></td>
+      <td><b>Phone_no</b></td>
+      <td><b>Image</b></td>
+      <td><b>Edit</b></td>
+        <td><b>Delete</b></td>
+    </tr>
+
+      {% for i in val %}
+
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.fname }} {{ i.lname }}</td>
+      <td> {{ i.gender }} </td>
+      <td> {{ i.place }},{{ i.post }} ,{{ i.pin }}</td>
+      <td> {{ i.email }}</td>
+      <td> {{ i.phone }}</td>
+      <td> <img src="media/{{ i.photo }}" width="40%"></td>
+      <td><p><a href="edit_staff/{{ i.id }}" class="btn btn-primary">Edit</a></p></td>
+      <td><p><a href="delete_staff/{{ i.LOGIN.id }}" class="btn btn-danger" onclick="return confirm('are you sure ?')">Delete</a></p></td>
+    </tr>
+
+      {% endfor  %}
+
+
+    <tr>
+      <td colspan="9" align="center">
+        <a class="btn btn-primary w-100" href="/add_stockmanager#about">Add</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+{#</html>#}
+
+

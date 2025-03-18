@@ -1,0 +1,54 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+{% extends 'ADMIN/index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="adddelivery">
+  <table width="200" border="1"  class="table table-bordered table-hover table-white">
+
+  <tr>
+      <td class="bg-dark text-white" colspan="9" style="font-size: 20px" align="center"><b>ADD & MANAGE SALESMAN</b></td>  </tr>
+    <tr>
+      <td><b>Slno</b></td>
+      <td><b>Name</b></td>
+      <td><b>Gender</b></td>
+      <td><b>Address</b></td>
+      <td><b>Phone_no</b></td>
+      <td><b>Email</b></td>
+      <td><b>Edit</b></td>
+      <td><b>Delete</b></td>
+    </tr>
+      {% for i in val %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+      <td>{{ i.name }}</td>
+      <td>{{ i.Gender }}</td>
+
+      <td>{{ i.place }}, {{ i.post }}, {{ i.pin }}</td>
+      <td>{{ i.phone }}</td>
+      <td>{{ i.email }}</td>
+
+        <td><p><a href="edit_deliveryboy/{{ i.id }}" class="btn btn-primary">Edit</a></p></td>
+      <td><p><a href="delete_deliveryboy/{{ i.LOGIN.id }}" class="btn btn-danger" onclick="return confirm('are you sure ?')">Delete</a></p></td>
+
+
+
+    </tr>
+       {% endfor  %}
+    <tr>
+      <tr>
+      <td colspan="9" align="center">
+        <a class="btn btn-primary w-100" href="adddelivery#about">Add</a></td>
+    </tr>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+{#</html>#}

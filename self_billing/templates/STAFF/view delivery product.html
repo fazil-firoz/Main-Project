@@ -1,0 +1,40 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'STAFF/staffindex1.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-bordered table-hover table-white">
+      <tr>
+          <td class="bg-dark text-white" colspan="9" style="font-size: 20px" align="center"><b>VIEW PRODUCT</b></td>  </tr>
+    <tr>
+    <tr>
+      <td><b>Slno</b></td>
+      <td><b>Name</b></td>
+      <td><b>Image</b></td>
+      <td><b>Quantity</b></td>
+      <td><b>Price</b></td>
+    </tr>
+            {% for i in val %}
+
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.PRODUCT.productname }}</td>
+        <td><img src="{{ i.PRODUCT.image.url }}" width="100px" height="100px"></td>
+{#        <td>&nbsp;{{ i.PRODUCT.image }}</td>#}
+      <td>{{ i.quantity }}</td>
+      <td>&nbsp;{{ i.PRODUCT.price }}</td>
+    </tr>
+              {% endfor %}
+
+  </table>
+</form>
+{% endblock %}
+
+{#</body>#}
+{#</html>#}

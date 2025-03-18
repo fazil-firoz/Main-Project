@@ -1,0 +1,58 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'ADMIN/index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/searchoffers">
+  <table width="200" border="1" class="table table-bordered table-hover table-white">
+      <tr>
+          <td class="bg-dark text-white" colspan="9" style="font-size: 20px" align="center"><b>ADD OFFERS</b></td>
+  </tr>
+    <tr>
+       <td colspan="8"><b>Date</b>
+
+        <input type="date" name="textfield"  required       />
+
+      <button type="submit" class="btn btn-primary">
+  <span class="glyphicon glyphicon-search"></span> Search
+</button>
+    </tr>
+    <tr>
+      <td><b>Slno</b></td>
+      <td><b>Product</b></td>
+      <td><b>Discount</b> </td>
+      <td><b>Details</b></td>
+      <td><b>From Date</b> </td>
+      <td><b>To Date</b> </td>
+      <td><b>Offer Type</b></td>
+{#        <td>Edit</td>#}
+      <td>Delete</td>
+    </tr>
+
+      {% for i in val  %}
+    <tr>
+    <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.PRODUCT.productname }}</td>
+      <td>&nbsp;{{ i.offers}}%</td>
+      <td>&nbsp;{{ i.details}}</td>
+      <td>&nbsp;{{ i.fromdate}}</td>
+      <td>&nbsp;{{ i.todate}}</td>
+      <td>{{ i.type}}</td>
+{#        <td><p><a href="#" class="btn btn-primary">Edit</a></p></td>#}
+      <td><p><a href="delete_offers/{{ i.id }}" class="btn btn-danger"onclick="return confirm('are you sure ?')">Delete</a></p></td>
+    </tr>
+      {% endfor  %}
+    <tr>
+      <td colspan="9" align="center">
+        <a class="btn btn-primary w-100" href="offersadd#about">Add</a></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
+
+{#</body>#}
+{#</html>#}
